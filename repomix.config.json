@@ -1,0 +1,25 @@
+{
+  "output": {
+    "style": "xml",
+    "filePath": "repomix-output.xml",
+
+    "topFilesLength": 10
+  },
+  "ignore": {
+    "customPatterns": [
+      ".claude/**",
+      ".cursor/**",
+      ".github/**",
+      ".repomix/**",
+      ".gitignore",
+      "*.egg-info/**",
+      "repomix.config.json",
+      "src/CsharpBackendService/appsettings.json",
+      "src/CsharpBackendService/appsettings.*.json",
+      "src/CsharpBackendService/obj/**",
+      "src/CsharpBackendService/bin/**",
+      "tests/CsharpBackendService.Tests/obj/**",
+      "tests/CsharpBackendService.Tests/bin/**"
+    ]
+  }
+}
