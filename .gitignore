@@ -140,3 +140,4 @@ _NCrunch*
 **/bin/**
 
 repomix-output.xml
+.vs/*
