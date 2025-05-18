@@ -6,6 +6,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0AB3BF05
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpBackendService.Tests", "tests\CsharpBackendService.Tests\CsharpBackendService.Tests.csproj", "{2EE4F2EC-8A26-4544-8902-0E9E5F3A34F9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{49293858-3255-4950-8605-8B71526BAB19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsharpBackendService", "src\CsharpBackendService\CsharpBackendService.csproj", "{B2AED44B-2B07-4DCB-AAD0-82EB80C3B159}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -16,11 +20,16 @@ Global
 		{2EE4F2EC-8A26-4544-8902-0E9E5F3A34F9}.Debug|x64.Build.0 = Debug|Any CPU
 		{2EE4F2EC-8A26-4544-8902-0E9E5F3A34F9}.Release|x64.ActiveCfg = Release|Any CPU
 		{2EE4F2EC-8A26-4544-8902-0E9E5F3A34F9}.Release|x64.Build.0 = Release|Any CPU
+		{B2AED44B-2B07-4DCB-AAD0-82EB80C3B159}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B2AED44B-2B07-4DCB-AAD0-82EB80C3B159}.Debug|x64.Build.0 = Debug|Any CPU
+		{B2AED44B-2B07-4DCB-AAD0-82EB80C3B159}.Release|x64.ActiveCfg = Release|Any CPU
+		{B2AED44B-2B07-4DCB-AAD0-82EB80C3B159}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2EE4F2EC-8A26-4544-8902-0E9E5F3A34F9} = {0AB3BF05-4346-4AA6-1389-037BE0695223}
+		{B2AED44B-2B07-4DCB-AAD0-82EB80C3B159} = {49293858-3255-4950-8605-8B71526BAB19}
 	EndGlobalSection
 EndGlobal

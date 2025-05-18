@@ -1,0 +1,75 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.cs]
+indent_size = 4
+charset = utf-8-bom
+
+# C# style preferences
+csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = true:suggestion
+csharp_prefer_braces = true:warning
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+dotnet_sort_system_directives_first = true
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+
+# Naming styles
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Interface naming rule
+dotnet_naming_rule.interface_should_begin_with_i.severity = error
+dotnet_naming_rule.interface_should_begin_with_i.symbols = interface_symbols
+dotnet_naming_rule.interface_should_begin_with_i.style = interface_style
+dotnet_naming_symbols.interface_symbols.applicable_kinds = interface
+dotnet_naming_symbols.interface_symbols.applicable_accessibilities = *
+dotnet_naming_style.interface_style.required_prefix = I
+dotnet_naming_style.interface_style.capitalization = pascal_case
+
+# Pascal case rules (classes, methods, properties)
+dotnet_naming_rule.element_should_be_pascal_case.severity = error
+dotnet_naming_rule.element_should_be_pascal_case.symbols = element_symbols
+dotnet_naming_rule.element_should_be_pascal_case.style = pascal_case_style
+dotnet_naming_symbols.element_symbols.applicable_kinds = class, struct, enum, property, method, event
+dotnet_naming_symbols.element_symbols.applicable_accessibilities = *
+
+# Private field naming
+dotnet_naming_rule.private_fields_should_begin_with_underscore.severity = suggestion
+dotnet_naming_rule.private_fields_should_begin_with_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_should_begin_with_underscore.style = prefix_underscore
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_style.prefix_underscore.required_prefix = _
+dotnet_naming_style.prefix_underscore.capitalization = camel_case
+
+# SA1101: Prefix local calls with this
+dotnet_diagnostic.SA1101.severity = none
+
+# SA1309: Field names should not begin with underscore
+dotnet_diagnostic.SA1309.severity = none
+
+# SA1200: Using directives should be placed correctly
+dotnet_diagnostic.SA1200.severity = none
+
+# CA1062: Validate arguments of public methods
+dotnet_diagnostic.CA1062.severity = warning
+
+# Enable XML documentation comments
+dotnet_diagnostic.SA1600.severity = warning
+dotnet_diagnostic.SA1601.severity = warning
+dotnet_diagnostic.SA1602.severity = warning
+dotnet_diagnostic.SA1633.severity = warning
+
+# Enforce file header
+dotnet_diagnostic.SA1633.severity = warning
