@@ -110,7 +110,7 @@ public class Program
         app.MapHealthChecks("/healthz");
 
         app.MapControllers();
-
+        Console.WriteLine("Remove me");
         app.Run();
     }
 }
