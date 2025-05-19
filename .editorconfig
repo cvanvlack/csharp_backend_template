@@ -53,6 +53,10 @@ dotnet_naming_symbols.private_fields.applicable_accessibilities = private
 dotnet_naming_style.prefix_underscore.required_prefix = _
 dotnet_naming_style.prefix_underscore.capitalization = camel_case
 
+# SA1009: Closing parenthesis should be followed by a space
+# Does not work with ! for nullable types
+dotnet_diagnostic.SA1009.severity = none
+
 # SA1101: Prefix local calls with this
 dotnet_diagnostic.SA1101.severity = none
 

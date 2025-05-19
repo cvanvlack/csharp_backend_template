@@ -19,7 +19,14 @@
       "src/CsharpBackendService/obj/**",
       "src/CsharpBackendService/bin/**",
       "tests/CsharpBackendService.Tests/obj/**",
-      "tests/CsharpBackendService.Tests/bin/**"
+      "tests/CsharpBackendService.Tests/bin/**",
+      ".vs/**",
+      "openapi.json",
+      "prompt-plan.md",
+      "spec.md",
+      "README.md",
+      "todo.md",
+      "tools/pre-commit.ps1"
     ]
   }
 }
