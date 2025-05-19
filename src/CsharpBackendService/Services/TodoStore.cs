@@ -1,4 +1,4 @@
-// <copyright file="TodoStore.cs" company="CsharpBackendService">
+﻿// <copyright file="TodoStore.cs" company="CsharpBackendService">
 // Copyright (c) CsharpBackendService. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,8 @@ using CsharpBackendService.Models;
 /// </summary>
 public class TodoStore : ITodoStore
 {
-    private readonly ConcurrentDictionary<Guid, Todo> _todos = new ();
+    private readonly ConcurrentDictionary<Guid, Todo> _todos
+  = new ConcurrentDictionary<Guid, Todo>();
 
     /// <inheritdoc/>
     public IEnumerable<Todo> GetAll() => _todos.Values;
@@ -30,10 +31,10 @@ public class TodoStore : ITodoStore
         ArgumentNullException.ThrowIfNull(todo);
 
         // Generate a new ID if it's empty
-        var id = todo.id == Guid.Empty ? Guid.NewGuid() : todo.id;
+        var id = todo.Id == Guid.Empty ? Guid.NewGuid() : todo.Id;
 
         // Create a new todo with the assigned ID
-        var newTodo = todo with { id = id };
+        var newTodo = todo with { Id = id };
 
         // Add to the dictionary
         if (!_todos.TryAdd(id, newTodo))
@@ -50,7 +51,7 @@ public class TodoStore : ITodoStore
         ArgumentNullException.ThrowIfNull(replacement);
 
         // Create a new todo with the correct ID to ensure ID is preserved
-        var updatedTodo = replacement with { id = id };
+        var updatedTodo = replacement with { Id = id };
 
         // Get the current value to use in TryUpdate
         if (!_todos.TryGetValue(id, out var currentTodo))

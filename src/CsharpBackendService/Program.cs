@@ -1,4 +1,4 @@
-// <copyright file="Program.cs" company="CsharpBackendService">
+﻿// <copyright file="Program.cs" company="CsharpBackendService">
 // Copyright (c) CsharpBackendService. All rights reserved.
 // </copyright>
 
@@ -20,7 +20,37 @@ public class Program
     /// <param name="args">Command line arguments.</param>
     public static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args);
+        var projectDir = Directory.GetCurrentDirectory();
+        var contentRoot = projectDir;
+
+        if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development" && projectDir.Contains("tests"))
+        {
+            // Walk up to the repo root no matter how deep /bin/* is,
+            // then point at the real web project.
+            var repoRoot = projectDir;
+            while (repoRoot is not null && Path.GetFileName(repoRoot) != "tests")
+            {
+                repoRoot = Path.GetDirectoryName(repoRoot)!;
+            }
+
+            repoRoot = Path.GetDirectoryName(repoRoot!)!;
+
+            contentRoot = Path.Combine(repoRoot, "src", "CsharpBackendService");
+
+            // Fallback safety – if we mis‑calculated, stay with the original dir
+            if (!Directory.Exists(contentRoot))
+            {
+                contentRoot = projectDir;
+            }
+        }
+
+        var options = new WebApplicationOptions
+        {
+            ContentRootPath = contentRoot,
+            Args = args,
+        };
+
+        var builder = WebApplication.CreateBuilder(options);
 
         // Add services to the container
         builder.Services.AddControllers();

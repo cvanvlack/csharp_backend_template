@@ -1,4 +1,4 @@
-// <copyright file="TodoStoreTests.cs" company="CsharpBackendService">
+﻿// <copyright file="TodoStoreTests.cs" company="CsharpBackendService">
 // Copyright (c) CsharpBackendService. All rights reserved.
 // </copyright>
 

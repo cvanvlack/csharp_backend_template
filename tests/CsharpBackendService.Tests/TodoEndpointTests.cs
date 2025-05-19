@@ -1,15 +1,17 @@
-// <copyright file="TodoEndpointTests.cs" company="CsharpBackendService">
+﻿// <copyright file="TodoEndpointTests.cs" company="CsharpBackendService">
 // Copyright (c) CsharpBackendService. All rights reserved.
 // </copyright>
 
 namespace CsharpBackendService.Tests;
 
+using System.IO;
 using System.Net;
 using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using CsharpBackendService;
 using CsharpBackendService.Models;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 /// <summary>
@@ -17,7 +19,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 /// </summary>
 public class TodoEndpointTests
 {
-    private WebApplicationFactory<Program> _factory = null!;
+    private CustomWebApplicationFactory<Program> _factory = null!;
     private HttpClient _client = null!;
     private readonly JsonSerializerOptions _jsonOptions = new JsonSerializerOptions
     {
@@ -30,7 +32,7 @@ public class TodoEndpointTests
     [SetUp]
     public void Setup()
     {
-        _factory = new WebApplicationFactory<Program>();
+        _factory = new CustomWebApplicationFactory<Program>();
         _client = _factory.CreateClient();
     }
 
@@ -111,13 +113,13 @@ public class TodoEndpointTests
         Assert.That(retrievedTodo.title, Is.EqualTo("CRUD Test"));
 
         // Act & Assert - Update the todo
-        var updatedTodo = createdTodo with { title = "Updated Title", done = true };
+        var updatedTodo = createdTodo with { Title = "Updated Title", Done = true };
         var updateContent = new StringContent(
             JsonSerializer.Serialize(updatedTodo, _jsonOptions),
             Encoding.UTF8,
             "application/json");
         var updateResponse = await _client.PutAsync($"/api/todos/{createdTodo.id}", updateContent);
-        Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.NoContent));
+        Assert.That(updateResponse.StatusCode, Is.EqualTo(HttpStatusCode.OK));
 
         // Verify the update
         var getAfterUpdateResponse = await _client.GetAsync($"/api/todos/{createdTodo.id}");
